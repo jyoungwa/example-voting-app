@@ -52,8 +52,7 @@ function getVotes(client) {
       console.error("Error performing query: " + err);
     } else {
       var votes = collectVotesFromResult(result);
-      //io.sockets.emit("scores", JSON.stringify(votes));
-      console.log("votes: " + JSON.stringify(votes));
+      io.sockets.emit("scores", JSON.stringify(votes));
     }
 
     setTimeout(function() {getVotes(client) }, 1000);
